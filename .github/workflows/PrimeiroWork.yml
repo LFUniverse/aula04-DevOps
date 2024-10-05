@@ -2,7 +2,7 @@
 name: Meu primeiro WorkFlow  
 #Quais eventos (gatilhos) diparam o fluxo?  
 #temos eventos do tipo push, pull request, merge, rebase ...
-on:  
+on:
   push:
     branches: [main, master, develop]
   pull_request:
@@ -16,26 +16,28 @@ jobs:
     name: Primeira tarefa
     runs-on: ubuntu-latest
     steps:
-      -name: Passo 01  
-      -run: echo "Executando o passo 1"
-      -name: Passo 02  
-      -run: echo "Executando o passo 2"
-      -name: Passo 03  
-      -run: echo "Executando o passo 3"
+      -name: Passo 1  
+        run: echo "Executando o passo 1"
+      -name: Passo 2
+        run: echo "Executando o passo 2"
+      -name: Passo 3  
+         run: echo "Executando o passo 3"
 
   tarefa02:
     name: Segunda tarefa
+    needs: tarefa01
     runs-on: ubuntu-latest
     steps:
       -name: Passo 04  
-      -run: echo "Executando o passo 4"
+       run: echo "Executando o passo 4"
       -name: Passo 05  
-      -run: echo "Executando o passo 5"
+       run: echo "Executando o passo 5"
       -name: Passo 06  
-      -run: echo "Executando o passo 6"
+       run: echo "Executando o passo 6"
 
   tarefa03:
     name: Terceira tarefa
+    needs: tarefa02
     runs-on: ubuntu-latest
     steps:
       -name: Passo 07  
