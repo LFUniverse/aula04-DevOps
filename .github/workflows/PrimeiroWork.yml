@@ -22,7 +22,7 @@ jobs:
       - name: Passo 2
         run: echo "Executando o passo 2"
       - name: Passo 3  
-        run: echo "Passo falho" | exit 1
+        run: echo "Executando o passo 3"
 
   tarefa02:
     name: Segunda tarefa
