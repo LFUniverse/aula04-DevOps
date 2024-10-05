@@ -14,35 +14,35 @@ on:
 jobs:
   tarefa01:
     name: Primeira tarefa
+    needs: Terceira tarefa
     runs-on: ubuntu-latest
     steps:
-      -name: Passo 1  
+      - name: Passo 1  
         run: echo "Executando o passo 1"
-      -name: Passo 2
+      - name: Passo 2
         run: echo "Executando o passo 2"
-      -name: Passo 3  
-         run: echo "Executando o passo 3"
+      - name: Passo 3  
+        run: echo "Passo falho" | exit 1
 
   tarefa02:
     name: Segunda tarefa
-    needs: tarefa01
+    needs: Primeira tarefa
     runs-on: ubuntu-latest
     steps:
-      -name: Passo 04  
-       run: echo "Executando o passo 4"
-      -name: Passo 05  
-       run: echo "Executando o passo 5"
-      -name: Passo 06  
-       run: echo "Executando o passo 6"
+      - name: Passo 04  
+        run: echo "Executando o passo 4"
+      - name: Passo 05  
+        run: echo "Executando o passo 5"
+      - name: Passo 06  
+        run: echo "Executando o passo 6"
 
   tarefa03:
     name: Terceira tarefa
-    needs: tarefa02
     runs-on: ubuntu-latest
     steps:
-      -name: Passo 07  
-      -run: echo "Executando o passo 7"
-      -name: Passo 08  
-      -run: echo "Executando o passo 8"
-      -name: Passo 09  
-      -run: echo "Executando o passo 9"
+      - name: Passo 07  
+        run: echo "Executando o passo 7"
+      - name: Passo 08  
+        run: echo "Executando o passo 8"
+      - name: Passo 09  
+        run: echo "Executando o passo 9"
